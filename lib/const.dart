@@ -17,3 +17,6 @@ const Color veryLightGray = Color(0xfffafafa);
 
 ///Dark Mode Text & Light Mode Elements
 const Color white = Color(0xffffffff);
+
+
+const String baseUrl = "https://restcountries.com/v3.1/";
