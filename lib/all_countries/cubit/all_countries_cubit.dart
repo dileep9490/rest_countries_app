@@ -9,17 +9,20 @@ import 'package:rest_countries_app/const.dart';
 part 'all_countries_state.dart';
 
 class AllCountriesCubit extends Cubit<AllCountriesState> {
-  AllCountriesCubit() : super(AllCountriesInitial());
+  AllCountriesCubit() : super(AllCountriesInitial()) {
+    getAllCountries();
+  }
 
-  Future<void> getAllCountries() async {
+  void getAllCountries() async {
+    emit(AllCountriesLoading());
     try {
-      emit(AllCountriesLoading());
       http.Response response = await http.get(Uri.parse(baseUrl + 'all'));
       List json = jsonDecode(response.body);
       List<Country> countriesList =
           json.map((e) => Country.fromMap(e)).toList();
       emit(AllCountriesLoaded(countries: countriesList));
     } catch (e) {
+      
       emit(AllCountriesError());
     }
   }

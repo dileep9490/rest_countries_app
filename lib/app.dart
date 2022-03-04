@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rest_countries_app/all_countries/views/homepage.dart';
-import 'package:rest_countries_app/const.dart';
+
+import 'all_countries/views/homepage.dart';
+import 'const.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,7 +10,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Countries App",
-      home: const HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Nunito_Sans',
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
               TextStyle(color: veryDarkBlue2, fontWeight: FontWeight.w300),
         ),
       ),
+      home: const HomePage(),
     );
   }
 }
