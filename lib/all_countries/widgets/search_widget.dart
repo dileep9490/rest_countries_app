@@ -11,7 +11,7 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: SizedBox(
-      height: 60,
+      height: 55,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         const Icon(
           Icons.search,
