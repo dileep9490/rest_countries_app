@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rest_countries_app/all_countries/cubit/all_countries_cubit.dart';
+import 'package:rest_countries_app/all_countries/cubit/countries_cubit.dart';
 
 class DropDownMenu extends StatefulWidget {
   const DropDownMenu({
@@ -43,7 +43,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
               ),
               items: menuItems,
               onChanged: (String? value) {
-                context.read<AllCountriesCubit>().callgetCountries(value!);
+                context.read<CountriesCubit>().callgetCountries(value!);
                 setState(() => this.value = value);
               },
               value: value,

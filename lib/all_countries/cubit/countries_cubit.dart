@@ -6,27 +6,27 @@ import 'package:equatable/equatable.dart';
 import 'package:rest_countries_app/all_countries/models/country.dart';
 import 'package:http/http.dart' as http;
 import 'package:rest_countries_app/const.dart';
-part 'all_countries_state.dart';
+part 'countries_state.dart';
 
-class AllCountriesCubit extends Cubit<AllCountriesState> {
-  AllCountriesCubit() : super(AllCountriesInitial()) {
-    getAllCountries('all');
+class CountriesCubit extends Cubit<CountriesState> {
+  CountriesCubit() : super(CountriesInitial()) {
+    getCountries('all');
   }
 
   void callgetCountries(String request) {
-    getAllCountries(request);
+    getCountries(request);
   }
 
-  void getAllCountries(String request) async {
-    emit(AllCountriesLoading());
+  void getCountries(String request) async {
+    emit(CountriesLoading());
     try {
       http.Response response = await http.get(Uri.parse(baseUrl + request));
       List json = jsonDecode(response.body);
       List<Country> countriesList =
           json.map((e) => Country.fromMap(e)).toList();
-      emit(AllCountriesLoaded(countries: countriesList));
+      emit(CountriesLoaded(countries: countriesList));
     } catch (e) {
-      emit(AllCountriesError());
+      emit(CountriesError());
     }
   }
 }
