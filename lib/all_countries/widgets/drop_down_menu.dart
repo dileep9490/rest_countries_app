@@ -27,7 +27,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
 
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Card(
         child: DropdownButtonHideUnderline(
           child: Container(

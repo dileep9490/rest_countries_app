@@ -14,6 +14,10 @@ class Country {
     required this.flagUrl,
   });
 
+  void _makeNumber(int number) {
+    //TODO: make the int to string and then seperate them with commas
+  }
+
   factory Country.fromMap(Map<String, dynamic> map) {
     return Country(
         name: map['name']['common'] ?? '',

@@ -63,18 +63,18 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          SearchWidget(),
-          DropDownMenu(),
-          Expanded(
-              child: SizedBox(
-            width: 300,
-            height: 170,
-            child: CountriesListBuilder(),
-          ))
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            SearchWidget(),
+            DropDownMenu(),
+            SizedBox(
+              width: 300,
+              child: CountriesListBuilder(),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -96,6 +96,8 @@ class CountriesListBuilder extends StatelessWidget {
         List<Country> countries = state.countries;
 
         return ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return CountryWidget(country: countries[index]);
           },
