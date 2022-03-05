@@ -32,19 +32,53 @@ class CountryWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              //TODO: insert commas between digits
-              Text(
-                'popultaion:${country.population}',
-                style: theme.bodySmall!.copyWith(fontSize: 18),
+              Row(
+                children: [
+                  Text(
+                    'Popultaion:',
+                    style: theme.bodyMedium!.copyWith(fontSize: 18),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    //TODO: insert commas between digits
+                    '${country.population}',
+                    style: theme.bodySmall!.copyWith(fontSize: 18),
+                  )
+                ],
               ),
-              Text(
-                'Region : ${country.region}',
-                style: theme.bodySmall!.copyWith(fontSize: 18),
+              Row(
+                children: [
+                  Text(
+                    'Region :',
+                    style: theme.bodyMedium!.copyWith(fontSize: 18),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    '${country.region}',
+                    style: theme.bodySmall!.copyWith(fontSize: 18),
+                  )
+                ],
               ),
-              Text(
-                'Capital : ${country.capital.isEmpty ? 'none' : country.capital[0]}',
-                style: theme.bodySmall!.copyWith(fontSize: 18),
-              )
+              Row(
+                children: [
+                  Text(
+                    'Capital :',
+                    style: theme.bodyMedium!.copyWith(fontSize: 18),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    //TODO: insert commas between digits
+                    ' ${country.capital.isEmpty ? 'none' : country.capital[0]}',
+                    style: theme.bodySmall!.copyWith(fontSize: 18),
+                  )
+                ],
+              ),
             ]),
           )
         ]),
