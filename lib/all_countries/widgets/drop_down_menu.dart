@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rest_countries_app/all_countries/cubit/all_countries_cubit.dart';
 
 class DropDownMenu extends StatefulWidget {
   const DropDownMenu({
@@ -21,7 +23,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
       DropdownMenuItem(child: Text("America"), value: "region/america"),
       DropdownMenuItem(child: Text("Africa"), value: "region/africa"),
       DropdownMenuItem(child: Text("Asia"), value: "region/asia"),
-      DropdownMenuItem(child: Text("Europe"), value: "region/eruope"),
+      DropdownMenuItem(child: Text("Europe"), value: "region/europe"),
       DropdownMenuItem(child: Text("Oceania"), value: "region/oceania"),
     ];
 
@@ -40,8 +42,9 @@ class _DropDownMenuState extends State<DropDownMenu> {
                 style: menuItemTextStyle,
               ),
               items: menuItems,
-              onChanged: (value) {
-                setState(() => this.value = value as String);
+              onChanged: (String? value) {
+                context.read<AllCountriesCubit>().callgetCountries(value!);
+                setState(() => this.value = value);
               },
               value: value,
               icon: const Icon(Icons.keyboard_arrow_down_rounded),

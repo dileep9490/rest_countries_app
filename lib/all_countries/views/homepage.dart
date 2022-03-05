@@ -90,7 +90,7 @@ class CountriesListBuilder extends StatelessWidget {
         return const Center(child: CircularProgressIndicator());
       } else if (state is AllCountriesError) {
         return const Center(
-          child: Icon(Icons.error),
+          child: Expanded(child: Icon(Icons.error)),
         );
       } else if (state is AllCountriesLoaded) {
         List<Country> countries = state.countries;
@@ -104,9 +104,7 @@ class CountriesListBuilder extends StatelessWidget {
           itemCount: countries.length,
         );
       } else {
-        return const CircularProgressIndicator(
-          color: Colors.red,
-        );
+        return const CircularProgressIndicator();
       }
     });
   }
