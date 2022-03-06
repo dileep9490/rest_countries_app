@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rest_countries_app/country_full_info/views/country_full_info_screen.dart';
 
 import 'countries_region/views/homepage.dart';
 import 'const.dart';
@@ -24,7 +25,11 @@ class MyApp extends StatelessWidget {
               TextStyle(color: veryDarkBlue2, fontWeight: FontWeight.w300),
         ),
       ),
-      home: const HomePage(),
+      initialRoute: HomePage.route,
+      routes: {
+        HomePage.route: (context) => const HomePage(),
+        CountryFullInfoScreen.route: (context) => const CountryFullInfoScreen()
+      },
     );
   }
 }

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rest_countries_app/all_countries/widgets/country_widget.dart';
 
 import '../../const.dart';
 import '../cubit/countries_cubit.dart';
 import '../models/country.dart';
+import '../widgets/country_widget.dart';
 import '../widgets/drop_down_menu.dart';
 import '../widgets/search_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+  static const String route = '/HomePage';
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +65,7 @@ class HomePageView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
       child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
