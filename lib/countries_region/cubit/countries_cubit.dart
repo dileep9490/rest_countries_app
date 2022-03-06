@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:rest_countries_app/all_countries/models/country.dart';
+import 'package:rest_countries_app/countries_region/models/country.dart';
 import 'package:http/http.dart' as http;
 import 'package:rest_countries_app/const.dart';
 part 'countries_state.dart';

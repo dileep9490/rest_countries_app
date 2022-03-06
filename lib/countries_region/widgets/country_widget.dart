@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rest_countries_app/all_countries/models/country.dart';
+import 'package:rest_countries_app/countries_region/models/country.dart';
 
 class CountryWidget extends StatelessWidget {
   const CountryWidget({Key? key, required this.country}) : super(key: key);
