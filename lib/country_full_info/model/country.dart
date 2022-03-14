@@ -37,7 +37,7 @@ class Country {
       flagUrl: map['flags']['png'] ?? '',
       population: map['population']?.toInt() ?? 0,
       region: map['region'] ?? '',
-      subRegion: map['subRegion'] ?? '',
+      subRegion: map['subregion'] ?? '',
       capital: List<String>.from(map['capital']),
       tld: List<String>.from(map['tld']),
       currencies: Map<String, dynamic>.from(map['currencies']),
