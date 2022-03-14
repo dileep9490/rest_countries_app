@@ -34,7 +34,7 @@ class Country {
       id: map['id'] ?? '',
       officialName: map['name']['official'] ?? '',
       name: map['name']['common'] ?? '',
-      flagUrl: map['flagUrl'] ?? '',
+      flagUrl: map['flags']['png'] ?? '',
       population: map['population']?.toInt() ?? 0,
       region: map['region'] ?? '',
       subRegion: map['subRegion'] ?? '',
