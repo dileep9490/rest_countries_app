@@ -28,5 +28,5 @@ class CountryError extends CountryState {
   final String error;
   const CountryError({required this.error});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [error];
 }
