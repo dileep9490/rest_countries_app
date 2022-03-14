@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rest_countries_app/country_full_info/views/country_full_info_screen.dart';
+import 'package:rest_countries_app/search_by_name/views/country_full_info_screen_by_search.dart';
 
 import 'countries_region/views/homepage.dart';
 import 'const.dart';
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
       initialRoute: HomePage.route,
       routes: {
         HomePage.route: (context) => const HomePage(),
-        CountryFullInfoScreen.route: (context) => const CountryFullInfoScreen()
+        CountryFullInfoScreen.route: (context) => const CountryFullInfoScreen(),
+        SearchCountryFullInfoScreen.route: (context) =>
+            const SearchCountryFullInfoScreen()
       },
     );
   }

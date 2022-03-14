@@ -68,10 +68,10 @@ class HomePageView extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children:  [
             SearchWidget(),
-            DropDownMenu(),
-            SizedBox(
+           const DropDownMenu(),
+          const  SizedBox(
               width: 300,
               child: CountriesListBuilder(),
             )

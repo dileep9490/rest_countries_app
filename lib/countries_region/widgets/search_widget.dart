@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:rest_countries_app/search_by_name/views/country_full_info_screen_by_search.dart';
 
 import '../../const.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({
+  SearchWidget({
     Key? key,
   }) : super(key: key);
-
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,7 +20,9 @@ class SearchWidget extends StatelessWidget {
         ),
         SizedBox(
           width: 300,
-          child: TextFormField(
+          child: TextFormField(controller: controller,
+              onEditingComplete: () => Navigator.pushNamed(
+                  context, SearchCountryFullInfoScreen.route, arguments: controller.text),
               decoration: InputDecoration(
                   border: const OutlineInputBorder(borderSide: BorderSide.none),
                   hintText: 'Search for a Country',
