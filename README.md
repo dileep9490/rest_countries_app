@@ -1,6 +1,6 @@
 # rest_countries_app
 
-A new Flutter project.
+This App gives info about countries using Rest API
 
 ## Getting Started
 
