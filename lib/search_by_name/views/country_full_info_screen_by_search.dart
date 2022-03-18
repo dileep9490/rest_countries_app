@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rest_countries_app/country_full_info/cubit/country_cubit.dart';
 import 'package:rest_countries_app/search_by_name/cubit/search_cubit.dart';
+import 'package:rest_countries_app/widgets/custom_app_bar.dart';
 
 import '../../const.dart';
 import '../../country_full_info/widgets/countryview.dart';
@@ -16,39 +17,12 @@ class SearchCountryFullInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(74),
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: AppBar(
-              automaticallyImplyLeading: false,
-              title: Text('Where in the world ?',
-                  style: Theme.of(context).textTheme.bodyLarge),
-              shadowColor: veryLightGray,
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      //TODO:implement dark mode
-                    },
-                    child: Row(children: [
-                      const Icon(
-                        Icons.dark_mode_outlined,
-                        color: veryDarkBlue2,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        'Dark Mode',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      )
-                    ]),
-                  ),
-                ),
-              ],
-            ),
+            child: CustomAppBar(),
           ),
         ),
         body: BlocProvider(

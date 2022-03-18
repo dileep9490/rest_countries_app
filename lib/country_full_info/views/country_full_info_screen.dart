@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rest_countries_app/country_full_info/cubit/country_cubit.dart';
+import 'package:rest_countries_app/widgets/custom_app_bar.dart';
 
-import '../../const.dart';
 import '../widgets/countryview.dart';
 
 class CountryFullInfoScreen extends StatelessWidget {
@@ -15,39 +15,12 @@ class CountryFullInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(74),
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: AppBar(
-              automaticallyImplyLeading: false,
-              title: Text('Where in the world ?',
-                  style: Theme.of(context).textTheme.bodyLarge),
-              shadowColor: veryLightGray,
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      //TODO:implement dark mode
-                    },
-                    child: Row(children: [
-                      const Icon(
-                        Icons.dark_mode_outlined,
-                        color: veryDarkBlue2,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        'Dark Mode',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      )
-                    ]),
-                  ),
-                ),
-              ],
-            ),
+            child: CustomAppBar(),
           ),
         ),
         body: BlocProvider(
@@ -81,7 +54,9 @@ class CountryFullInfoView extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Icon(Icons.arrow_back),
+                      const Icon(
+                        Icons.arrow_back,
+                      ),
                       Text(
                         'Back',
                         style: Theme.of(context).textTheme.bodyMedium,
@@ -95,7 +70,18 @@ class CountryFullInfoView extends StatelessWidget {
               if (state is CountryLoading) {
                 return const CircularProgressIndicator();
               } else if (state is CountryError) {
-                return const Icon(Icons.error);
+                return Column(
+                  children: [
+                    const Icon(Icons.error),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Error in Loading Data",
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    )
+                  ],
+                );
               } else if (state is CountryLoaded) {
                 return CountryView(country: state.country);
               } else {

@@ -5,11 +5,19 @@ import 'package:rest_countries_app/theme/bloc/app_theme_bloc.dart';
 import '../const.dart';
 import '../theme/theme.dart';
 
-class CustomAppBar extends StatelessWidget {
+// ignore: must_be_immutable
+class CustomAppBar extends StatefulWidget {
   CustomAppBar({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
   bool _lightTheme = true;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -29,17 +37,19 @@ class CustomAppBar extends StatelessWidget {
                 BlocProvider.of<AppThemeBloc>(context)
                     .add(AppThemeEvent(theme: AppTheme.lightTheme));
               }
+
               _lightTheme = !_lightTheme;
+              setState(() {});
             },
             child: Row(children: [
               _lightTheme
-                  ? const Icon(
+                  ? Icon(
                       Icons.dark_mode_outlined,
-                      color: veryDarkBlue2,
+                      color: Theme.of(context).iconTheme.color,
                     )
-                  : const Icon(
+                  : Icon(
                       Icons.dark_mode,
-                      color: Colors.white,
+                      color: Theme.of(context).iconTheme.color,
                     ),
               const SizedBox(
                 width: 8,

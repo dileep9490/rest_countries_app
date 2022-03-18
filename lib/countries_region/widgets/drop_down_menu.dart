@@ -31,11 +31,13 @@ class _DropDownMenuState extends State<DropDownMenu> {
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Card(
+        elevation: 10,
         child: DropdownButtonHideUnderline(
           child: Container(
             margin: const EdgeInsets.all(10),
             height: 30,
             child: DropdownButton(
+              dropdownColor: Theme.of(context).backgroundColor,
               style: menuItemTextStyle,
               hint: Text(
                 'Filter By Region',
@@ -47,7 +49,10 @@ class _DropDownMenuState extends State<DropDownMenu> {
                 setState(() => this.value = value);
               },
               value: value,
-              icon: const Icon(Icons.keyboard_arrow_down_rounded),
+              icon: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: Theme.of(context).iconTheme.color,
+              ),
             ),
           ),
         ),
