@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rest_countries_app/country_full_info/widgets/borders_widget.dart';
 import 'package:rest_countries_app/country_full_info/widgets/key_value_row_widget.dart';
+import 'package:rest_countries_app/widgets/text_number_widget.dart';
 
 import '../model/country.dart';
 import 'map_row.dart';
@@ -35,7 +36,21 @@ class CountryView extends StatelessWidget {
           ),
           KeyValueRow(rkey: 'Official Name', value: country.officialName),
           const SizedBox(height: 5),
-          KeyValueRow(rkey: 'Population', value: country.population.toString()),
+          Row(
+            children: [
+              Text(
+                'Population: ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontSize: 16),
+              ),
+              const SizedBox(
+                width: 4,
+              ),
+              TextNumberWidget(number: country.population)
+            ],
+          ),
           const SizedBox(height: 5),
           KeyValueRow(rkey: 'Region', value: country.region),
           const SizedBox(height: 5),

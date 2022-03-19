@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rest_countries_app/countries_region/models/country.dart';
 import 'package:rest_countries_app/country_full_info/views/country_full_info_screen.dart';
+import 'package:rest_countries_app/widgets/text_number_widget.dart';
 
 class CountryWidget extends StatelessWidget {
   const CountryWidget({Key? key, required this.country}) : super(key: key);
@@ -23,7 +24,7 @@ class CountryWidget extends StatelessWidget {
               child: Image.network(country.flagUrl),
             ),
 
-            //TODO:seperate subheading and value
+            
             Container(
               height: 160,
               width: 300,
@@ -48,11 +49,7 @@ class CountryWidget extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        Text(
-                          //TODO: insert commas between digits
-                          '${country.population}',
-                          style: theme.bodySmall!.copyWith(fontSize: 18),
-                        )
+                      TextNumberWidget(number: country.population)
                       ],
                     ),
                     Row(
@@ -80,7 +77,7 @@ class CountryWidget extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          //TODO: insert commas between digits
+                         
                           ' ${country.capital.isEmpty ? 'none' : country.capital[0]}',
                           style: theme.bodySmall!.copyWith(fontSize: 18),
                         )
