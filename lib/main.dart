@@ -7,6 +7,7 @@ import 'theme/bloc/app_theme_bloc.dart';
 void main(List<String> args) {
   runApp(BlocProvider(
     create: (context) => AppThemeBloc(),
+    //using bloc
     child: const MyApp(),
   ));
 }
